@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "855826375824",
+    "project_id": "uptask-planner101",
+    "storage_bucket": "uptask-planner101.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855826375824:android:d8a6b42bf4f099255f2415",
+        "android_client_info": {
+          "package_name": "com.example.up_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855826375824-s797j7chc0s6824j4jg70sem0pig4bgp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH_JdWWt0Mcz__iZCV7PJAOKiVJnG8nsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855826375824-s797j7chc0s6824j4jg70sem0pig4bgp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
