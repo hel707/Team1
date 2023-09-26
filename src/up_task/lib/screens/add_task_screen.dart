@@ -11,38 +11,19 @@ class AddTaskPage extends StatefulWidget {
 }
 
 class _AddTaskPageState extends State<AddTaskPage> {
+
+//   list of recurrence types
+  List recurrenceList = [
+    ["Do not repeat", false],
+    ["Daily", true],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
-        children: [
-          RecurrenceTile( 
-            recurrenceType: "Do not repete",        // do nothing
-            ticked: true,
-            onChanged: (p0) {},
-          ),
-          RecurrenceTile( 
-            recurrenceType: "Daily",        // daily
-            ticked: true,
-            onChanged: (p0) {},
-          ),
-          RecurrenceTile( 
-            recurrenceType: "Weekly on a Day",        // Weekly on a day
-            ticked: true,
-            onChanged: (p0) {},
-          ),
-          RecurrenceTile( 
-            recurrenceType: "Monthly on some day of week",// monthly on some day of week
-            ticked: true,
-            onChanged: (p0) {},
-          ),
-          RecurrenceTile( 
-            recurrenceType: "Anually on same date",        // anually
-            ticked: true,
-            onChanged: (p0) {},
-          ),
-          
-        ],
+      body: ListView.builder(
+        itemCount: recurrenceList.length,
+        itemBuilder: (context, ),
       ),
     );
   }
