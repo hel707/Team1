@@ -11,9 +11,9 @@ import 'package:up_task/screens/login_screen.dart';
 import 'package:up_task/screens/search_screen.dart';
 
 //DELETE WHILE PRODUCTION
-main() {
-  runApp(const MyApp());
-}
+// main() {
+//   runApp(const MyApp());
+// }
 
 //UNCOMMENT WHILE PRODUCTION
 // Future<void> main() async {
