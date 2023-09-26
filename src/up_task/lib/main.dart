@@ -1,18 +1,22 @@
+import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:up_task/screens/login_screen.dart';
 
-// void main() {
-//   runApp(const MyApp());
-// }
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+//DELETE WHILE PRODUCTION
+main() {
   runApp(const MyApp());
 }
+
+//UNCOMMENT WHILE PRODUCTION
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -25,6 +29,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      //UNCOMMENT WHILE PRODUCTION
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
@@ -42,6 +47,8 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+    //DELETE WHILE PRODUCTION
+    // home: MyHomePage(title: 'Flutter Demo Home Page'));
   }
 }
 
@@ -63,6 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
         // centerTitle: true,
       ),
+
+      bottomNavigationBar: NavigationBar(destinations: const [
+        NavigationDestination(icon: Icon(Icons.home_filled), label: 'Home'),
+        NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
+        NavigationDestination(
+            icon: Icon(Icons.calendar_month_rounded), label: 'Calendar'),
+      ]),
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -73,11 +88,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await GoogleSignIn().signOut();
-          FirebaseAuth.instance.signOut();
-        },
+        //DELETE WHILE PRODUCTION
+        onPressed: () {},
+        //UNCOMMENT WHILE PRODUCTION
+        // onPressed: () async {
+        //   await GoogleSignIn().signOut();
+        //   FirebaseAuth.instance.signOut();
+        // },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
