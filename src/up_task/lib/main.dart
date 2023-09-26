@@ -18,42 +18,39 @@ main() {
 //   runApp(const MyApp());
 // }
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'UpTask',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            return Text(snapshot.error.toString());
-          }
-          if (snapshot.connectionState == ConnectionState.active) {
-            if (snapshot.data == null) {
-              return LoginPage();
-            } else {
-              return MyHomePage(title: 'Flutter Demo Home Page');
-            }
-          }
-          return Text(snapshot.error.toString());
-        },
-      ),
-    );
-    //DELETE WHILE PRODUCTION
-    // home: MyHomePage(title: 'Flutter Demo Home Page'));
+        title: 'UpTask',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+
+        //UNCOMMENT WHILE PRODUCTION
+        //   home: StreamBuilder<User?>(
+        //     stream: FirebaseAuth.instance.authStateChanges(),
+        //     builder: (context, snapshot) {
+        //       if (snapshot.hasError) {
+        //         return Text(snapshot.error.toString());
+        //       }
+        //       if (snapshot.connectionState == ConnectionState.active) {
+        //         if (snapshot.data == null) {
+        //           return LoginPage();
+        //         } else {
+        //           return MyHomePage(title: 'Flutter Demo Home Page');
+        //         }
+        //       }
+        //       return Text(snapshot.error.toString());
+        //     },
+        //   ),
+        // );
+
+        //DELETE WHILE PRODUCTION
+        home: MyHomePage(title: 'Flutter Demo Home Page'));
   }
 }
 
@@ -73,7 +70,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
-        // centerTitle: true,
       ),
       body: Center(
         child: Column(
@@ -87,11 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await GoogleSignIn().signOut();
-          FirebaseAuth.instance.signOut();
-        },
-        tooltip: 'Increment',
+        onPressed: () {},
+        //UNCOMMENT WHILE PRODUCTION
+        // onPressed: () async {
+        //   await GoogleSignIn().signOut();
+        //   FirebaseAuth.instance.signOut();
+        // },
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
