@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//Custom imports
+import 'package:up_task/customwidgets/Recurrence/recurrence_tile.dart';
+
 class AddTaskPage extends StatefulWidget {
   const AddTaskPage({super.key});
 
@@ -10,6 +13,12 @@ class AddTaskPage extends StatefulWidget {
 class _AddTaskPageState extends State<AddTaskPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold (
+        body: ListView(
+          children: [
+            RecurrenceTile()
+          ],
+        ),
+    );
   }
 }
