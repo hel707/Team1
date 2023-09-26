@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class RecurrenceTile extends StatelessWidget {
+  final String recurrenceType;
   final bool ticked;
   Function(bool?)? onChanged;
 
   RecurrenceTile({
     super.key,
+    required this.recurrenceType,
     required this.ticked,
     required this.onChanged,
   });
@@ -23,7 +25,7 @@ class RecurrenceTile extends StatelessWidget {
             Checkbox(value: ticked, onChanged: onChanged),
 
             //task name
-            Text("Do not Repeat"),
+            Text(recurrenceType),
           ],
         ),
         decoration: BoxDecoration(
