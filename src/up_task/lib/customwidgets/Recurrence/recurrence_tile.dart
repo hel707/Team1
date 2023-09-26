@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'
+import 'package:flutter/material.dart';
 
 class RecurrenceTile extends StatelessWidget {
   const RecurrenceTile({super.key});
@@ -12,7 +12,7 @@ class RecurrenceTile extends StatelessWidget {
         child: Row(
           children: [
             //check box
-            Checkbox(value: value, onChanged: onChanged)
+            Checkbox(value: value, onChanged: onChanged),
 
             //task name
             Text("Do not Repeat"),
