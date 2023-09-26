@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:up_task/screens/calendar_screen.dart';
+import 'package:up_task/screens/home_screen.dart';
 
 import 'package:up_task/screens/login_screen.dart';
+import 'package:up_task/screens/search_screen.dart';
 
 //DELETE WHILE PRODUCTION
 main() {
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
         //         if (snapshot.data == null) {
         //           return LoginPage();
         //         } else {
-        //           return MyHomePage(title: 'Flutter Demo Home Page');
+        //           return HomeLayout(title: 'Flutter Demo Home Page');
         //         }
         //       }
         //       return Text(snapshot.error.toString());
@@ -50,20 +53,22 @@ class MyApp extends StatelessWidget {
         // );
 
         //DELETE WHILE PRODUCTION
-        home: MyHomePage(title: 'Flutter Demo Home Page'));
+        home: HomeLayout(title: 'Flutter Demo Home Page'));
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class HomeLayout extends StatefulWidget {
+  const HomeLayout({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomeLayout> createState() => _HomeLayout();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeLayout extends State<HomeLayout> {
+  int index = 0;
+  final screen = [HomeScreen(), SearchScreen(), CalendarScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,16 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'Home Page',
-            ),
-          ],
-        ),
-      ),
+
+      body: screen[index],
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -90,7 +87,19 @@ class _MyHomePageState extends State<MyHomePage> {
         //   FirebaseAuth.instance.signOut();
         // },
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      // BOTTOM NAVIGATION BAR
+      bottomNavigationBar: NavigationBar(
+          selectedIndex: index,
+          height: 60,
+          onDestinationSelected: (index) => setState(() => this.index = index),
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          destinations: const [
+            NavigationDestination(icon: Icon(Icons.home), label: "Home"),
+            NavigationDestination(icon: Icon(Icons.search), label: "Search"),
+            NavigationDestination(
+                icon: Icon(Icons.calendar_today_rounded), label: "Calendar"),
+          ]), // This trailing comma makes aut
     );
   }
 }
