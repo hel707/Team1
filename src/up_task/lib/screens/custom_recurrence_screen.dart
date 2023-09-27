@@ -13,7 +13,12 @@ class CustomTask extends StatelessWidget {
             "Repeats every",
             style: TextStyle(fontSize: 25),
           ),
-          // child:
+          child: TextField(
+            decoration: InputDecoration(
+              labelText: "1",
+              hintText: "change number",
+            ),
+          ),
         ),
       ),
     );
