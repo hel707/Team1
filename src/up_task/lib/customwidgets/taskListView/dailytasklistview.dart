@@ -3,6 +3,10 @@ import 'package:up_task/customwidgets/tasktile.dart';
 import 'package:up_task/data/tasks.dart';
 
 class DailyTaskListView extends StatefulWidget {
+  final Function(bool) onTaskCheckboxChanged;
+
+  DailyTaskListView({required this.onTaskCheckboxChanged});
+
   @override
   _DailyTaskListViewState createState() => _DailyTaskListViewState();
 }
@@ -14,7 +18,6 @@ class _DailyTaskListViewState extends State<DailyTaskListView> {
       child: ListView.builder(
         itemCount: tasks.length,
         itemBuilder: (context, index) {
-          // Create a TaskTile for each task in the list
           return buildTaskTile(
             title: tasks[index].title,
             isChecked: tasks[index].isChecked,
@@ -24,13 +27,13 @@ class _DailyTaskListViewState extends State<DailyTaskListView> {
                   ' beofre click checked: ' +
                   tasks[index].isChecked.toString());
               setState(() {
-                tasks[index].isChecked =
-                    !(tasks[index].isChecked); // Update the isChecked property
+                tasks[index].isChecked = !(tasks[index].isChecked);
               });
               updateTaskStatus(index, (tasks[index].isChecked));
               print(tasks[index].title +
                   ' is now checked: ' +
                   tasks[index].isChecked.toString());
+              widget.onTaskCheckboxChanged(tasks[index].isChecked);
             },
           );
         },
