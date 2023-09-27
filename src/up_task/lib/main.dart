@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:up_task/screens/calendar_screen.dart';
 import 'package:up_task/screens/home_screen.dart';
+import 'package:up_task/screens/NavBAr.dart';
 
 import 'package:up_task/screens/login_screen.dart';
 import 'package:up_task/screens/search_screen.dart';
@@ -76,6 +77,7 @@ class _HomeLayout extends State<HomeLayout> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
+      drawer: NavBar(),
 
       body: screen[index],
 
