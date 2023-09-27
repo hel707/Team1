@@ -2,44 +2,95 @@ import 'package:flutter/material.dart';
 
 //Custom imports
 import 'package:up_task/customwidgets/Recurrence/recurrence_tile.dart';
+import 'package:up_task/screens/add_task_screen.dart';
 
-class AddTaskPage extends StatefulWidget {
+
+class AddTaskPage extends StatelessWidget {
   const AddTaskPage({super.key});
 
   @override
-  State<AddTaskPage> createState() => _AddTaskPageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Expansion Radio Button'),
+        ),
+        body: const RadioWithExpansion(),
+      ),
+    );
+  }
 }
 
-class _AddTaskPageState extends State<AddTaskPage> {
-//   list of recurrence types
-  List recurrenceList = [
-    ["Do not repeat", false],
-    ["Daily", true],
-    ["Weekly on a day",false],
-    ["Monthly on same day of week", false],
-    ["Anually on same date",false],
-    ["Custom", false],
-  ];
+// state full widgit for expansion radio button
+class RadioWithExpansion extends StatefulWidget {
+  const RadioWithExpansion({super.key});
 
-  void checkBoxChanged(bool? value, int index) {
-      recurrenceList[index][1] = !(recurrenceList[index][1]);
-    setState(() {
-    });
-  }
+  @override
+  State<RadioWithExpansion> createState() => _RadioWithExpansionState();
+}
+
+class _RadioWithExpansionState extends State<RadioWithExpansion> {
+  late String selectedOption='Option 1';
+  bool isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView.builder(
-        itemCount: recurrenceList.length,
-        itemBuilder: (context, index) {
-          return RecurrenceTile(
-            recurrenceType: recurrenceList[index][0],
-            ticked: recurrenceList[index][1],
-            onChanged: (value) => checkBoxChanged(value, index),
-          );
-        },
-      ),
+    return Column(
+      children: <Widget>[
+        const ListTile(
+          title: Text(
+            'Select an option:',
+            style: TextStyle(fontSize: 18),
+          ),
+        ),
+        ExpansionTile(
+          title: const Text(
+            'Expand to select option',
+            style: TextStyle(color: Colors.blue),
+          ),
+          initiallyExpanded: isExpanded,
+          onExpansionChanged: (value) {
+            setState(() {
+              isExpanded = value;
+            });
+          },
+          children: <Widget>[
+            RadioListTile(
+              title: const Text('Option 1'),
+              value: 'Option 1',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Option 2'),
+              value: 'Option 2',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Option 3'),
+              value: 'Option 3',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
