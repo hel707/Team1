@@ -1,11 +1,14 @@
+// DailyTaskListView.dart
 import 'package:flutter/material.dart';
 import 'package:up_task/customwidgets/tasktile.dart';
 import 'package:up_task/data/tasks.dart';
 
 class DailyTaskListView extends StatefulWidget {
   final Function(bool) onTaskCheckboxChanged;
+  final Function(int) onDeleteTask;
 
-  DailyTaskListView({required this.onTaskCheckboxChanged});
+  DailyTaskListView(
+      {required this.onTaskCheckboxChanged, required this.onDeleteTask});
 
   @override
   _DailyTaskListViewState createState() => _DailyTaskListViewState();
@@ -33,6 +36,7 @@ class _DailyTaskListViewState extends State<DailyTaskListView> {
               setState(() {
                 deleteDailyTask(index);
               });
+              widget.onDeleteTask(index); // Call the onDeleteTask callback here
             },
           );
         },

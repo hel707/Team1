@@ -1,3 +1,4 @@
+// HomeScreen.dart
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:up_task/customwidgets/taskListView/dailytasklistview.dart';
@@ -101,6 +102,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         completed_tasks = calculateCompletedTasks(show_tasks);
                       });
                     },
+                    onDeleteTask: (index) {
+                      setState(() {
+                        show_tasks = tasks;
+                        completed_tasks = calculateCompletedTasks(show_tasks);
+                        total_tasks = tasks.length;
+                      });
+                    },
                   ),
                 if (task_type == "weekly")
                   WeeklyTaskListView(
@@ -109,12 +117,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         completed_tasks = calculateCompletedTasks(show_tasks);
                       });
                     },
+                    onDeleteTask: (index) {
+                      setState(() {
+                        show_tasks = weekly_tasks;
+                        completed_tasks = calculateCompletedTasks(show_tasks);
+                        total_tasks = weekly_tasks.length;
+                      });
+                    },
                   ),
                 if (task_type == "monthly")
                   MonthlyTaskListView(
                     onTaskCheckboxChanged: (isChecked) {
                       setState(() {
                         completed_tasks = calculateCompletedTasks(show_tasks);
+                      });
+                    },
+                    onDeleteTask: (index) {
+                      setState(() {
+                        show_tasks = monthly_tasks;
+                        completed_tasks = calculateCompletedTasks(show_tasks);
+                        total_tasks = monthly_tasks.length;
                       });
                     },
                   ),
