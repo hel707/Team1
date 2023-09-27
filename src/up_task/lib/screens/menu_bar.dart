@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -76,13 +78,13 @@ class NavBar extends StatelessWidget {
             title: Text('Exit'),
             leading: Icon(Icons.exit_to_app),
             //DELETE WHILE PRODUCTION
-            onTap: () => null,
+            // onTap: () => null,
 
             //UNCOMMENT WHILE PRODUCTION
-            // onTap: () async {
-            //   await GoogleSignIn().signOut();
-            //   FirebaseAuth.instance.signOut();
-            // },
+            onTap: () async {
+              await GoogleSignIn().signOut();
+              FirebaseAuth.instance.signOut();
+            },
           ),
         ],
       ),

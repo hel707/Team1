@@ -93,11 +93,6 @@ class _HomeLayout extends State<HomeLayout> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => AddTaskPage())),
-        //UNCOMMENT WHILE PRODUCTION
-        // onPressed: () async {
-        //   await GoogleSignIn().signOut();
-        //   FirebaseAuth.instance.signOut();
-        // },
         child: const Icon(Icons.add),
       ),
 
