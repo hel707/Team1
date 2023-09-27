@@ -97,14 +97,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (task_type == "daily")
                   DailyTaskListView(
                     onTaskCheckboxChanged: (isChecked) {
-                      // Update the completed tasks count
                       setState(() {
                         completed_tasks = calculateCompletedTasks(show_tasks);
                       });
                     },
                   ),
-                if (task_type == "weekly") WeeklyTaskListView(),
-                if (task_type == "monthly") MonthlyTaskListView(),
+                if (task_type == "weekly")
+                  WeeklyTaskListView(
+                    onTaskCheckboxChanged: (isChecked) {
+                      setState(() {
+                        completed_tasks = calculateCompletedTasks(show_tasks);
+                      });
+                    },
+                  ),
+                if (task_type == "monthly")
+                  MonthlyTaskListView(
+                    onTaskCheckboxChanged: (isChecked) {
+                      setState(() {
+                        completed_tasks = calculateCompletedTasks(show_tasks);
+                      });
+                    },
+                  ),
               ],
             ),
           ),
