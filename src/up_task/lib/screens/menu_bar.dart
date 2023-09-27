@@ -6,6 +6,7 @@ class NavBar extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
+          // User Details
           UserAccountsDrawerHeader(
             accountName: Text('Cry0Cell'),
             accountEmail: Text('Team01@gmail.com'),
@@ -28,11 +29,13 @@ class NavBar extends StatelessWidget {
                       'https://w0.peakpx.com/wallpaper/508/112/HD-wallpaper-abstract-summer-landscape-valley-sunset-mountains-abstract-nature-backgrounds-abstract-mountains-landscape-artwork-abstract-landscape.jpg')),
             ),
           ),
+
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Profile'),
             onTap: () => null,
           ),
+
           ListTile(
             leading: Icon(Icons.notifications),
             title: Text('Reminders'),
@@ -55,21 +58,31 @@ class NavBar extends StatelessWidget {
             ),
           ),
           Divider(),
+
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Settings'),
             onTap: () => null,
           ),
+
           ListTile(
             leading: Icon(Icons.share),
             title: Text('Share'),
             onTap: () => null,
           ),
           Divider(),
+
           ListTile(
             title: Text('Exit'),
             leading: Icon(Icons.exit_to_app),
+            //DELETE WHILE PRODUCTION
             onTap: () => null,
+
+            //UNCOMMENT WHILE PRODUCTION
+            // onTap: () async {
+            //   await GoogleSignIn().signOut();
+            //   FirebaseAuth.instance.signOut();
+            // },
           ),
         ],
       ),

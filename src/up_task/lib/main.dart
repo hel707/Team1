@@ -6,25 +6,27 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:up_task/screens/add_task_screen.dart';
 import 'package:up_task/screens/calendar_screen.dart';
 import 'package:up_task/screens/home_screen.dart';
-import 'package:up_task/screens/NavBAr.dart';
+import 'package:up_task/screens/menu_bar.dart';
 
 import 'package:up_task/screens/login_screen.dart';
 import 'package:up_task/screens/search_screen.dart';
 
+//This is the First file of the App
+//This File initializes the app and loads the home layout
 //DELETE WHILE PRODUCTION
-// main() {
-//   runApp(const MyApp());
-// }
+main() {
+  runApp(const InitializeApp());
+}
 
 //UNCOMMENT WHILE PRODUCTION
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp();
-//   runApp(const MyApp());
+//   runApp(const InitializeApp());
 // }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class InitializeApp extends StatelessWidget {
+  const InitializeApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -70,9 +72,14 @@ class HomeLayout extends StatefulWidget {
 
 class _HomeLayout extends State<HomeLayout> {
   int index = 0;
-  final screen = [HomeScreen(), SearchScreen(), CalendarScreen()];
+  final screen = [
+    HomeScreen(),
+    SearchScreen(),
+    CalendarScreen()
+  ]; // List of Screens
   @override
   Widget build(BuildContext context) {
+    // Returns Home Layout
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -82,6 +89,7 @@ class _HomeLayout extends State<HomeLayout> {
 
       body: screen[index],
 
+      // Button To add new tasks
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => AddTaskPage())),
@@ -92,6 +100,7 @@ class _HomeLayout extends State<HomeLayout> {
         // },
         child: const Icon(Icons.add),
       ),
+
       // BOTTOM NAVIGATION BAR
       bottomNavigationBar: NavigationBar(
           selectedIndex: index,

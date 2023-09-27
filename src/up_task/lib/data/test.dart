@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:convert';
 
+// THIS IS TEST FILE (TO BE DELETED LATER)
 void main() {
-  // Replace 'your_json_file.json' with the actual file path.
   final String filePath = 'lib/data/jsonFiles/weekly_tasks.json';
 
   try {

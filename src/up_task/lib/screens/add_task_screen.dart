@@ -17,12 +17,12 @@ class _AddTaskPageState extends State<AddTaskPage> {
     ["Daily", true],
   ];
 
-  void checkBoxChanged(bool? value, int index){
-     setState(() {
-       recurrenceList[index][1] = !recurrenceList[index][1];
-     });
+  void checkBoxChanged(bool? value, int index) {
+    setState(() {
+      recurrenceList[index][1] = !recurrenceList[index][1];
+    });
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

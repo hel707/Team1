@@ -6,6 +6,8 @@ class Task {
   Task({required this.title, required this.isChecked, required this.priority});
 }
 
+// Hard-Coded list of tasks
+// Later will Import from DataBase
 List<Task> tasks = [
   Task(title: 'Sample Task ', isChecked: false, priority: 2),
   Task(title: 'Sample Task 2', isChecked: true, priority: 1),
