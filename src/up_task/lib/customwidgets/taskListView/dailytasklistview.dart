@@ -26,6 +26,7 @@ class _DailyTaskListViewState extends State<DailyTaskListView> {
               setState(() {
                 tasks[index].isChecked = !(tasks[index].isChecked);
               });
+              widget.onTaskCheckboxChanged(tasks[index].isChecked);
               updateTaskStatus(index, (tasks[index].isChecked));
             },
           );
