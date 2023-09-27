@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 Widget buildTaskTile({
   required String title,
@@ -7,32 +8,43 @@ Widget buildTaskTile({
   required ValueChanged<bool?> onCheckboxChanged,
   String? taskType,
 }) {
-  return ListTile(
-    leading: Checkbox(
-      value: isChecked,
-      onChanged: onCheckboxChanged,
-    ),
-    title: Text(
-      title,
-      style: TextStyle(
-        decoration: isChecked ? TextDecoration.lineThrough : null,
+  return Slidable(
+    endActionPane: ActionPane(motion: StretchMotion(), children: [
+      SlidableAction(
+        onPressed: deletetask(),
+        icon: Icons.delete,
+        backgroundColor: Colors.red,
       ),
-    ),
-    trailing: Container(
-      padding: EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: getPriorityColor(priority),
-        borderRadius: BorderRadius.circular(8.0),
+    ]),
+    child: ListTile(
+      leading: Checkbox(
+        value: isChecked,
+        onChanged: onCheckboxChanged,
       ),
-      child: Text(
-        'Priority $priority',
+      title: Text(
+        title,
         style: TextStyle(
-          color: Colors.white,
+          decoration: isChecked ? TextDecoration.lineThrough : null,
+        ),
+      ),
+      trailing: Container(
+        padding: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          color: getPriorityColor(priority),
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        child: Text(
+          'Priority $priority',
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
     ),
   );
 }
+
+deletetask() {}
 
 Color getPriorityColor(int priority) {
   switch (priority) {
