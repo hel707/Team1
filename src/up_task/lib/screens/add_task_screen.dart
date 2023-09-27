@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:up_task/customwidgets/Recurrence/recurrence_tile.dart';
 import 'package:up_task/screens/add_task_screen.dart';
 
-
 class AddTaskPage extends StatelessWidget {
   const AddTaskPage({super.key});
 
@@ -13,7 +12,7 @@ class AddTaskPage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Expansion Radio Button'),
+          title: const Text('Recursions'),
         ),
         body: const RadioWithExpansion(),
       ),
@@ -30,7 +29,7 @@ class RadioWithExpansion extends StatefulWidget {
 }
 
 class _RadioWithExpansionState extends State<RadioWithExpansion> {
-  late String selectedOption='Option 1';
+  late String selectedOption = 'Do not repete';
   bool isExpanded = false;
 
   @override
@@ -39,13 +38,121 @@ class _RadioWithExpansionState extends State<RadioWithExpansion> {
       children: <Widget>[
         const ListTile(
           title: Text(
-            'Select an option:',
+            'Select type of recursion:',
             style: TextStyle(fontSize: 18),
           ),
         ),
+
+        RadioListTile(
+          title: const Text('Do not repete'),
+          value: 'Do not repete',
+          groupValue: selectedOption,
+          onChanged: (value) {
+            setState(() {
+              selectedOption = value!;
+              isExpanded = false; // Collapse the panel after selecting
+            });
+          },
+        ),
+
+        RadioListTile(
+          title: const Text('Daily'),
+          value: 'Daily',
+          groupValue: selectedOption,
+          onChanged: (value) {
+            setState(() {
+              selectedOption = value!;
+              isExpanded = true; // Collapse the panel after selecting
+            });
+          },
+        ),
+
+//Weekly on a day
         ExpansionTile(
           title: const Text(
-            'Expand to select option',
+            'Weekly on a day',
+            style: TextStyle(color: Colors.blue),
+          ),
+          initiallyExpanded: isExpanded,
+          onExpansionChanged: (value) {
+            setState(() {
+              isExpanded = value;
+            });
+          },
+          children: <Widget>[
+            RadioListTile(
+              title: const Text('Monday'),
+              value: 'Monday',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Tuesday'),
+              value: 'Tuesday',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Wednesday'),
+              value: 'Wednesday',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Thrusday'),
+              value: 'Thrusday',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Friday'),
+              value: 'Friday',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+            RadioListTile(
+              title: const Text('Saturday'),
+              value: 'Saturday',
+              groupValue: selectedOption,
+              onChanged: (value) {
+                setState(() {
+                  selectedOption = value!;
+                  isExpanded = false; // Collapse the panel after selecting
+                });
+              },
+            ),
+          ],
+        ),
+
+// Monthly on same day of week
+        ExpansionTile(
+          title: const Text(
+            'Monthly on same day of week',
             style: TextStyle(color: Colors.blue),
           ),
           initiallyExpanded: isExpanded,
