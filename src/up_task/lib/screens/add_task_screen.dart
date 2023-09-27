@@ -15,11 +15,15 @@ class _AddTaskPageState extends State<AddTaskPage> {
   List recurrenceList = [
     ["Do not repeat", false],
     ["Daily", true],
+    ["Weekly on a day",false],
+    ["Monthly on same day of week", false],
+    ["Anually on same date",false],
+    ["Custom", false],
   ];
 
   void checkBoxChanged(bool? value, int index) {
+      recurrenceList[index][1] = !(recurrenceList[index][1]);
     setState(() {
-      recurrenceList[index][1] = !recurrenceList[index][1];
     });
   }
 
@@ -32,7 +36,7 @@ class _AddTaskPageState extends State<AddTaskPage> {
           return RecurrenceTile(
             recurrenceType: recurrenceList[index][0],
             ticked: recurrenceList[index][1],
-            onChanged: (value) => checkBoxChanged,
+            onChanged: (value) => checkBoxChanged(value, index),
           );
         },
       ),

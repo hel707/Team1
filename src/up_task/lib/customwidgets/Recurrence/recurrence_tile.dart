@@ -16,9 +16,9 @@ class RecurrenceTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       //Adding padding around list of options
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.all(5),
         child: Row(
           children: [
             //check box
@@ -29,8 +29,8 @@ class RecurrenceTile extends StatelessWidget {
           ],
         ),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: const Color.fromARGB(255, 158, 158, 158)),
+            borderRadius: BorderRadius.circular(30),
+            color: Color.fromARGB(255, 209, 209, 209)),
       ),
     );
   }
