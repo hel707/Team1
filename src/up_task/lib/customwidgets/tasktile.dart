@@ -6,12 +6,13 @@ Widget buildTaskTile({
   required bool isChecked,
   required int priority,
   required ValueChanged<bool?> onCheckboxChanged,
+  required Function(BuildContext?) onDelete,
   String? taskType,
 }) {
   return Slidable(
     endActionPane: ActionPane(motion: StretchMotion(), children: [
       SlidableAction(
-        onPressed: deletetask(),
+        onPressed: onDelete,
         icon: Icons.delete,
         backgroundColor: Colors.red,
       ),

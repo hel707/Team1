@@ -19,17 +19,20 @@ class _WeeklyTaskListViewState extends State<WeeklyTaskListView> {
         itemCount: weekly_tasks.length,
         itemBuilder: (context, index) {
           return buildTaskTile(
-            title: weekly_tasks[index].title,
-            isChecked: weekly_tasks[index].isChecked,
-            priority: weekly_tasks[index].priority,
-            onCheckboxChanged: (bool? newValue) {
-              setState(() {
-                weekly_tasks[index].isChecked =
-                    !(weekly_tasks[index].isChecked);
+              title: weekly_tasks[index].title,
+              isChecked: weekly_tasks[index].isChecked,
+              priority: weekly_tasks[index].priority,
+              onCheckboxChanged: (bool? newValue) {
+                setState(() {
+                  weekly_tasks[index].isChecked =
+                      !(weekly_tasks[index].isChecked);
+                });
+                widget.onTaskCheckboxChanged(weekly_tasks[index].isChecked);
+              },
+              onDelete: (index) {
+                deleteWeeklyTask(index as int);
+                setState(() {});
               });
-              widget.onTaskCheckboxChanged(weekly_tasks[index].isChecked);
-            },
-          );
         },
       ),
     );

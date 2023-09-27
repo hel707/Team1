@@ -19,17 +19,20 @@ class _MonthlyTaskListViewState extends State<MonthlyTaskListView> {
         itemCount: monthly_tasks.length,
         itemBuilder: (context, index) {
           return buildTaskTile(
-            title: monthly_tasks[index].title,
-            isChecked: monthly_tasks[index].isChecked,
-            priority: monthly_tasks[index].priority,
-            onCheckboxChanged: (bool? newValue) {
-              setState(() {
-                monthly_tasks[index].isChecked =
-                    !(monthly_tasks[index].isChecked);
+              title: monthly_tasks[index].title,
+              isChecked: monthly_tasks[index].isChecked,
+              priority: monthly_tasks[index].priority,
+              onCheckboxChanged: (bool? newValue) {
+                setState(() {
+                  monthly_tasks[index].isChecked =
+                      !(monthly_tasks[index].isChecked);
+                });
+                widget.onTaskCheckboxChanged(monthly_tasks[index].isChecked);
+              },
+              onDelete: (index) {
+                deleteMonthlyTask(index as int);
+                setState(() {});
               });
-              widget.onTaskCheckboxChanged(monthly_tasks[index].isChecked);
-            },
-          );
         },
       ),
     );
