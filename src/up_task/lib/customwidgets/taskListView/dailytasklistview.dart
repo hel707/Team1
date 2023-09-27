@@ -23,17 +23,10 @@ class _DailyTaskListViewState extends State<DailyTaskListView> {
             isChecked: tasks[index].isChecked,
             priority: tasks[index].priority,
             onCheckboxChanged: (bool? newValue) {
-              print(tasks[index].title +
-                  ' beofre click checked: ' +
-                  tasks[index].isChecked.toString());
               setState(() {
                 tasks[index].isChecked = !(tasks[index].isChecked);
               });
               updateTaskStatus(index, (tasks[index].isChecked));
-              print(tasks[index].title +
-                  ' is now checked: ' +
-                  tasks[index].isChecked.toString());
-              widget.onTaskCheckboxChanged(tasks[index].isChecked);
             },
           );
         },
