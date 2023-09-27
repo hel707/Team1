@@ -240,8 +240,9 @@ class _RadioWithExpansionState extends State<RadioWithExpansion> {
 
 //Custom
             ElevatedButton(
-              style: ElevatedButton.styleFrom(minimumSize: Size(100,40)),
-              onPressed: () {},
+              style: ElevatedButton.styleFrom(minimumSize: Size(100, 40)),
+              onPressed: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CustomTask())),
               child: Text("Custom Recurrence"),
             ),
           ],

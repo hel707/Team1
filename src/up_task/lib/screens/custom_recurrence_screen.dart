@@ -13,8 +13,7 @@ class CustomTask extends StatelessWidget {
             "Repeats every",
             style: TextStyle(fontSize: 25),
           ),
-          child: 
-
+          // child:
         ),
       ),
     );
