@@ -1,6 +1,6 @@
 // DailyTaskListView.dart
 import 'package:flutter/material.dart';
-import 'package:up_task/customwidgets/tasktile.dart';
+import 'package:up_task/customwidgets/tasktiles/tasktile.dart';
 import 'package:up_task/data/tasks.dart';
 
 class DailyTaskListView extends StatefulWidget {

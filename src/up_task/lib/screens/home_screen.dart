@@ -14,10 +14,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void updateHomeScreen() {
-    setState(() {});
-  }
-
   var show_tasks = tasks;
   var total_tasks = tasks.length;
   var completed_tasks = calculateCompletedTasks(tasks);
