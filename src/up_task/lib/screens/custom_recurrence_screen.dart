@@ -5,13 +5,31 @@ class CustomTask extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    
+      return Scaffold(
         appBar: AppBar(title: Text("Custom Recurrence")),
         body: const Center(
-          child: Text(
-            "Repeats every",
-            style: TextStyle(fontSize: 25),
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Text("Repete Everyday"),
+                  Row(
+                    children: [
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: "1",
+                          hintText: "change number",
+                        ),
+                      ),
+                      
+                      ElevatedButton(onPressed: null, child: Text("button"))
+
+                    ],
+                  )
+                ],
+              )
+            ],
           ),
           // child: TextField(
           //   decoration: InputDecoration(
@@ -20,7 +38,7 @@ class CustomTask extends StatelessWidget {
           //   ),
           // ),
         ),
-      ),
+      
     );
   }
 }
