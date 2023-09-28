@@ -241,7 +241,10 @@ class AddTaskPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pop(context),
+        onPressed: () {
+          print('Task added');
+          Navigator.pop(context);
+        },
         child: const Icon(Icons.check),
       ),
     );
