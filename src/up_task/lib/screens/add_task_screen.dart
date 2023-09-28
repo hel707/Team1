@@ -59,9 +59,73 @@ class AddTaskPage extends StatelessWidget {
                   fontSize: 18.0, // Customize text inside the TextField
                 ),
               ),
+
               SizedBox(
                 height: 20,
               ),
+
+              // ADD TIME and ADD DATE BUTTONS
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Handle the "Time" button press
+                      // You can add your logic here
+                    },
+                    child: Text('Add Time'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150, 60), // Increase button size
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Handle the "Date" button press
+                      // You can add your logic here
+                    },
+                    child: Text('Add Date'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150, 60), // Increase button size
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
+              //PRIORITY AND RECURRENCE BUTTON
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      // Handle the "Time" button press
+                      // You can add your logic here
+                    },
+                    child: Text('Priority'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150, 60), // Increase button size
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RecurrenceScreen())),
+                    child: Text('Repeat Task'),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(150, 60), // Increase button size
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
               // Add other widgets or components as needed
             ],
           ),
