@@ -69,6 +69,8 @@ class CustomTask extends StatelessWidget {
                 ),
               ],
             ),
+
+//weekly row selection
             SizedBox(
               width: 400,
               child: Row(
