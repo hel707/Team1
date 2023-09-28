@@ -74,7 +74,7 @@ class _HomeLayout extends State<HomeLayout> {
   int index = 0;
   final screen = [
     HomeScreen(),
-    SearchScreen(),
+    // SearchScreen(),
     CalendarScreen()
   ]; // List of Screens
   @override
@@ -104,7 +104,7 @@ class _HomeLayout extends State<HomeLayout> {
           labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: "Home"),
-            NavigationDestination(icon: Icon(Icons.search), label: "Search"),
+            // NavigationDestination(icon: Icon(Icons.search), label: "Search"),
             NavigationDestination(
                 icon: Icon(Icons.calendar_today_rounded), label: "Calendar"),
           ]), // This trailing comma makes aut
