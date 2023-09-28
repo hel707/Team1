@@ -31,6 +31,7 @@ class AddTaskPage extends StatelessWidget {
                 height: 20,
               ),
               // Styled TextField
+              // Enter Task Name
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Task Name',
@@ -65,7 +66,6 @@ class AddTaskPage extends StatelessWidget {
               ),
 
               // ADD TIME and ADD DATE BUTTONS
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -96,7 +96,6 @@ class AddTaskPage extends StatelessWidget {
               ),
 
               //PRIORITY AND RECURRENCE BUTTON
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -125,6 +124,7 @@ class AddTaskPage extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
+
               Text(
                 'Reminder',
                 textAlign: TextAlign.left,
@@ -164,7 +164,7 @@ class AddTaskPage extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-
+              // Description of Task
               Container(
                 height: 150,
                 child: TextField(
@@ -193,12 +193,12 @@ class AddTaskPage extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // Add other widgets or components as needed
             ],
           ),
         ),
       ),
+
+      //Tick Button
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pop(context),
         child: const Icon(Icons.check),
