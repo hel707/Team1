@@ -9,37 +9,37 @@ class Task {
 // Hard-Coded list of tasks
 // Later will Import from DataBase
 List<Task> tasks = [
-  Task(title: 'Sample Task ', isChecked: false, priority: 2),
-  Task(title: 'Sample Task 2', isChecked: true, priority: 1),
-  Task(title: 'Sample Task 3', isChecked: false, priority: 3),
-  Task(title: 'Sample Task 4', isChecked: false, priority: 2),
-  Task(title: 'Sample Task 5', isChecked: true, priority: 1),
-  Task(title: 'Sample Task 6', isChecked: false, priority: 3),
-  Task(title: 'Sample Task 7', isChecked: false, priority: 2),
-  Task(title: 'Sample Task 8', isChecked: false, priority: 1),
+  Task(title: 'Exercise', isChecked: false, priority: 2),
+  Task(title: 'Water The Plants', isChecked: true, priority: 1),
+  Task(title: 'Read 5 Pages', isChecked: false, priority: 3),
+  Task(title: 'Meditate', isChecked: false, priority: 2),
+  Task(title: 'Update Daily Dairy', isChecked: true, priority: 1),
+  Task(title: 'Handwriting Practice', isChecked: false, priority: 3),
+  Task(title: 'Feed the Fishes', isChecked: false, priority: 2),
+  Task(title: 'BP Medicine', isChecked: false, priority: 1),
   // Add more tasks here
 ];
 
 List<Task> weekly_tasks = [
-  Task(title: 'Weekly Task ', isChecked: false, priority: 2),
-  Task(title: 'Weekly Task 2', isChecked: false, priority: 1),
-  Task(title: 'Weekly Task 3', isChecked: false, priority: 3),
-  Task(title: 'Weekly Task 4', isChecked: false, priority: 2),
-  Task(title: 'Weekly Task 5', isChecked: false, priority: 1),
-  Task(title: 'Weekly Task 6', isChecked: false, priority: 3),
-  Task(title: 'Weekly Task 7', isChecked: false, priority: 2),
-  Task(title: 'Weekly Task 8', isChecked: false, priority: 1),
-  Task(title: 'Weekly Task 9', isChecked: false, priority: 2),
+  Task(title: 'Clean My Room', isChecked: false, priority: 2),
+  Task(title: 'Mow the lawn', isChecked: false, priority: 1),
+  Task(title: 'Write a blog post', isChecked: false, priority: 3),
+  Task(title: 'Go To Temple', isChecked: false, priority: 2),
+  Task(title: 'Polish Shoes', isChecked: false, priority: 1),
+  Task(title: 'Iron Clothes', isChecked: false, priority: 3),
+  Task(title: 'Contribute on Github', isChecked: false, priority: 2),
+  Task(title: 'Check Demat Account', isChecked: false, priority: 1),
+  Task(title: 'Mock Test', isChecked: false, priority: 2),
   // Add more tasks here
 ];
 
 List<Task> monthly_tasks = [
-  Task(title: 'Monthly Task ', isChecked: false, priority: 2),
-  Task(title: 'Monthly Task 2', isChecked: false, priority: 1),
-  Task(title: 'Monthly Task 3', isChecked: false, priority: 3),
-  Task(title: 'Monthly Task 4', isChecked: false, priority: 2),
-  Task(title: 'Monthly Task 5', isChecked: true, priority: 1),
-  Task(title: 'Monthly Task 6', isChecked: false, priority: 3),
+  Task(title: 'Mobile Bill', isChecked: false, priority: 2),
+  Task(title: 'Electricity Bill', isChecked: false, priority: 1),
+  Task(title: 'Credit Card Bill', isChecked: false, priority: 3),
+  Task(title: 'Go on a Trip', isChecked: false, priority: 2),
+  Task(title: 'Organize Fridge', isChecked: true, priority: 1),
+  Task(title: 'Wash Curtains', isChecked: false, priority: 3),
   // Add more tasks here
 ];
 
