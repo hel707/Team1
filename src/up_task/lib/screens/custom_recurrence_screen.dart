@@ -56,6 +56,10 @@ class CustomTask extends StatelessWidget {
                 ],
               ),
             ),
+            
+//divider line           
+            Divider(),
+            
 //week selection
             Row(
               children: [
@@ -72,7 +76,7 @@ class CustomTask extends StatelessWidget {
 
 //weekly row selection
             Padding(
-              padding: const EdgeInsets.only(left: 25, top: 5, ),
+              padding: const EdgeInsets.only(left: 25, top: 5,),
               child: SizedBox(
                 width: 400,
                 child: Row(
