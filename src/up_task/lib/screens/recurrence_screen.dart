@@ -1,5 +1,6 @@
 // state full widgit for expansion radio button
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:up_task/screens/custom_recurrence_screen.dart';
 
 class RecurrenceScreen extends StatefulWidget {
@@ -7,6 +8,14 @@ class RecurrenceScreen extends StatefulWidget {
 
   @override
   State<RecurrenceScreen> createState() => _RecurrenceScreenState();
+}
+
+final _myBox = Hive.box('mybox2');
+  
+void writeData(String recur, String dayType) {
+  _myBox.put(101, recur);
+  _myBox.put(102, dayType);
+  print('Recurrence: $recur');
 }
 
 class _RecurrenceScreenState extends State<RecurrenceScreen> {
@@ -29,12 +38,13 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
               ),
             ),
 
-            //Do not repete
+            //Do not repeat
             RadioListTile(
-              title: const Text('Do not repete'),
-              value: 'Do not repete',
+              title: const Text('Do not repeat'),
+              value: 'Do not repeat',
               groupValue: selectedOption,
               onChanged: (value) {
+                writeData(value!, 'Daily');
                 setState(() {
                   selectedOption = value!;
                   isExpanded = false; // Collapse the panel after selecting
@@ -48,6 +58,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
               value: 'Daily',
               groupValue: selectedOption,
               onChanged: (value) {
+                writeData(value!, 'Daily');
                 setState(() {
                   selectedOption = value!;
                   isExpanded = true; // Collapse the panel after selecting
@@ -73,6 +84,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Monday',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Weekly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -84,6 +96,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Tuesday',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Weekly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -95,6 +108,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Wednesday',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Weekly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -102,10 +116,11 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   },
                 ),
                 RadioListTile(
-                  title: const Text('Thrusday'),
-                  value: 'Thrusday',
+                  title: const Text('Thursday'),
+                  value: 'Thursday',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Weekly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -117,6 +132,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Friday',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Weekly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -128,6 +144,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Saturday',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Weekly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -155,6 +172,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'First week',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Monthly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -166,6 +184,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Second week',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Monthly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -177,6 +196,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Third week',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Monthly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -188,6 +208,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Fourth week',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Monthly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -199,6 +220,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
                   value: 'Fifth week',
                   groupValue: selectedOption,
                   onChanged: (value) {
+                    writeData(value!, 'Monthly');
                     setState(() {
                       selectedOption = value!;
                       isExpanded = false; // Collapse the panel after selecting
@@ -214,6 +236,7 @@ class _RecurrenceScreenState extends State<RecurrenceScreen> {
               value: 'Anually on same day',
               groupValue: selectedOption,
               onChanged: (value) {
+                writeData(value!, 'Monthly');
                 setState(() {
                   selectedOption = value!;
                   isExpanded = false; // Collapse the panel after selecting

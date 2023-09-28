@@ -30,6 +30,7 @@ class _WeeklyTaskListViewState extends State<WeeklyTaskListView> {
                     !(weekly_tasks[index].isChecked);
               });
               widget.onTaskCheckboxChanged(weekly_tasks[index].isChecked);
+              updateWeeklyTaskStatus(index , (weekly_tasks[index].isChecked));
             },
             onDelete: (context) {
               setState(() {

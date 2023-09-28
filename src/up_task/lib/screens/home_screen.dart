@@ -80,8 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () {
                         show_tasks = monthly_tasks;
                         total_tasks = monthly_tasks.length;
-                        completed_tasks =
-                            calculateCompletedTasks(monthly_tasks);
+                        completed_tasks = calculateCompletedTasks(monthly_tasks);
                         task_type = "monthly";
                         setState(() {});
                       },
@@ -94,6 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 if (task_type == "daily")
                   DailyTaskListView(
                     onTaskCheckboxChanged: (isChecked) {
+                      // show task details in a dialog box
+
                       setState(() {
                         completed_tasks = calculateCompletedTasks(show_tasks);
                       });

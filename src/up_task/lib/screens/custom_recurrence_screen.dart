@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
 class CustomTask extends StatefulWidget {
   const CustomTask({Key? key});
 
   @override
   State<CustomTask> createState() => _CustomTaskState();
+}
+
+final _myBox = Hive.box('mybox');
+  
+void writeData(String recur) {
+  _myBox.put(101, recur);
+  print('Recurrence: $recur');
 }
 
 class _CustomTaskState extends State<CustomTask> {

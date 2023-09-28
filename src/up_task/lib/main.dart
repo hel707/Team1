@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:up_task/screens/add_task_screen.dart';
 import 'package:up_task/screens/calendar_screen.dart';
 import 'package:up_task/screens/home_screen.dart';
@@ -10,11 +12,33 @@ import 'package:up_task/screens/menu_bar.dart';
 
 import 'package:up_task/screens/login_screen.dart';
 import 'package:up_task/screens/search_screen.dart';
+import 'package:up_task/data/database.dart';
+import 'package:up_task/data/tasks.dart';
 
 //This is the First file of the App
 //This File initializes the app and loads the home layout
 //DELETE WHILE PRODUCTION
-main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(TaskDataAdapter());
+  Hive.registerAdapter(TimeOfDayAdapter());
+  Hive.registerAdapter(TaskAdapter());
+  var box = await Hive.openBox('mybox');
+  var box2 = await Hive.openBox('mybox2');
+  var task = await Hive.openBox('task');
+  var weekly = await Hive.openBox('weekly');
+  var monthly = await Hive.openBox('monthly');
+
+  runAll();
+
+  // clear all data from both the boxes
+
+  // box.clear();
+  // box2.clear();
+  // task.clear();
+  // weekly.clear();
+  // monthly.clear();
+
   runApp(const InitializeApp());
 }
 

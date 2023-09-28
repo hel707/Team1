@@ -30,6 +30,7 @@ class _MonthlyTaskListViewState extends State<MonthlyTaskListView> {
                     !(monthly_tasks[index].isChecked);
               });
               widget.onTaskCheckboxChanged(monthly_tasks[index].isChecked);
+              updateMonthlyTaskStatus(index , (monthly_tasks[index].isChecked));
             },
             onDelete: (context) {
               setState(() {

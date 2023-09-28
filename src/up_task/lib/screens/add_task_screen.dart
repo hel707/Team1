@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:up_task/screens/recurrence_screen.dart';
+import 'package:up_task/data/database.dart';
+import 'package:up_task/data/tasks.dart';
+
+final _myBox = Hive.box('mybox2');
+
+String getRecurrence() {
+  return _myBox.get(102);
+}
 
 class AddTaskPage extends StatelessWidget {
-  const AddTaskPage({Key? key});
+  // const AddTaskPage({Key? key});
+  final TaskData taskData = TaskData();
+
+  void getID() {
+    taskData.id = 1000 + _myBox.length;
+    taskData.recurrence = getRecurrence();
+  }
 
   Future<void> _showPriorityDialog(BuildContext context) async {
     int? selectedPriority;
@@ -44,6 +59,7 @@ class AddTaskPage extends StatelessWidget {
 
     if (selectedPriority != null) {
       // Handle the selected priority here
+      taskData.selectedPriority = selectedPriority;
       print('Selected Priority: $selectedPriority');
     }
   }
@@ -56,6 +72,7 @@ class AddTaskPage extends StatelessWidget {
 
     if (selectedTime != null) {
       // Handle the selected time here
+      taskData.selectedTime = selectedTime;
       print('Selected Time: ${selectedTime.format(context)}');
     }
   }
@@ -70,6 +87,7 @@ class AddTaskPage extends StatelessWidget {
 
     if (selectedDate != null) {
       // Handle the selected date here
+      taskData.selectedDate = selectedDate != null ? DateTime(selectedDate.year, selectedDate.month, selectedDate.day) : null;
       print('Selected Date: ${selectedDate.toLocal()}');
     }
   }
@@ -96,6 +114,9 @@ class AddTaskPage extends StatelessWidget {
                 height: 20,
               ),
               TextField(
+                onChanged: (value) {
+                  taskData.taskName = value;
+                },
                 decoration: InputDecoration(
                   labelText: 'Task Name',
                   labelStyle: TextStyle(
@@ -159,10 +180,14 @@ class AddTaskPage extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () => Navigator.push(
+                    onPressed: () => {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => RecurrenceScreen())),
+                          builder: (context) => RecurrenceScreen()
+                        )
+                      )
+                    },
                     child: Text('Repeat Task'),
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(150, 60),
@@ -188,20 +213,22 @@ class AddTaskPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      taskData.reminder = 10;
+                    },
                     child: Text('10 Min'),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      taskData.reminder = 60;
+                    },
                     child: Text('1 Hour'),
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      taskData.reminder = 1440;
+                    },
                     child: Text('1 Day'),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Icon(Icons.add),
                   ),
                 ],
               ),
@@ -211,6 +238,9 @@ class AddTaskPage extends StatelessWidget {
               Container(
                 height: 150,
                 child: TextField(
+                  onChanged: (value) {
+                    taskData.taskDescription = value;
+                  },
                   maxLines: 4,
                   decoration: InputDecoration(
                     labelText: 'Enter Task Description',
@@ -242,7 +272,10 @@ class AddTaskPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('Task added');
+          // Add the task to the database
+          getID();
+          addTask(taskData);
+          runAll();
           Navigator.pop(context);
         },
         child: const Icon(Icons.check),
