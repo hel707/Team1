@@ -169,8 +169,17 @@ class CustomTask extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
+
+//Divider   
+            SizedBox(height: 35,),
+            Divider(),
+
+// Ends Section
+            
           ],
+
+          
         ),
       ),
     );
