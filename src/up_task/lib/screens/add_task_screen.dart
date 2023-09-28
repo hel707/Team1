@@ -35,24 +35,24 @@ class AddTaskPage extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: 'Task Name',
                   labelStyle: TextStyle(
-                    color: Colors.blue, // Customize label text color
+                    color: Colors.purple, // Customize label text color
                     fontSize: 16.0,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     borderSide: BorderSide(
-                      color: Colors.blue, // Customize border color
+                      color: Colors.purple, // Customize border color
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     borderSide: BorderSide(
-                      color: Colors.blue, // Customize focused border color
+                      color: Colors.purple, // Customize focused border color
                     ),
                   ),
                   prefixIcon: Icon(
                     Icons.assignment, // Add an icon as a prefix
-                    color: Colors.blue, // Customize icon color
+                    color: Colors.purple, // Customize icon color
                   ),
                 ),
                 style: TextStyle(
@@ -123,7 +123,75 @@ class AddTaskPage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 25,
+              ),
+              Text(
+                'Reminder',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              SizedBox(
+                height: 10,
+              ),
+
+              // TIME BUTTONS(10min,1Hour,1Day)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('10 Min'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('1 Hour'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Text('1 Day'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {},
+                    child: Icon(Icons.add),
+                  ),
+                ],
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+              Container(
+                height: 150,
+                child: TextField(
+                  maxLines: 4,
+                  decoration: InputDecoration(
+                    labelText: 'Enter Task Description',
+                    labelStyle: TextStyle(
+                      color: Colors.purple, // Customize label text color
+                      fontSize: 16.0,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(
+                        color: Colors.purple, // Customize border color
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      borderSide: BorderSide(
+                        color: Colors.purple, // Customize focused border color
+                      ),
+                    ),
+                  ),
+                  style: TextStyle(
+                    fontSize: 18.0, // Customize text inside the TextField
+                  ),
+                ),
               ),
 
               // Add other widgets or components as needed
