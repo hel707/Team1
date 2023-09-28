@@ -75,13 +75,90 @@ class CustomTask extends StatelessWidget {
               width: 400,
               child: Row(
                 children: [
-                  FloatingActionButton(heroTag: "Su", onPressed: null,child: Text("S")),
-                  FloatingActionButton(heroTag: "M", onPressed: null,child: Text("M")),
-                  FloatingActionButton(heroTag: "T", onPressed: null,child: Text("T")),
-                  FloatingActionButton(heroTag: "W", onPressed: null,child: Text("W")),
-                  FloatingActionButton(heroTag: "T", onPressed: null,child: Text("T")),
-                  FloatingActionButton(heroTag: "F", onPressed: null,child: Text("F")),
-                  FloatingActionButton(heroTag: "S", onPressed: null,child: Text("S")),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "Su",
+                        onPressed: null,
+                        child: Text("S"),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "M",
+                        onPressed: null,
+                        child: Text("M"),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "Tu",
+                        onPressed: null,
+                        child: Text("T"),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "W",
+                        onPressed: null,
+                        child: Text("W"),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "T",
+                        onPressed: null,
+                        child: Text("T"),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "F",
+                        onPressed: null,
+                        child: Text("F"),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(2.5),
+                    child: Container(
+                      height: 25,
+                      width: 25,
+                      child: FloatingActionButton(
+                        heroTag: "S",
+                        onPressed: null,
+                        child: Text("S"),
+                      ),
+                    ),
+                  ),
                   
                 ],
               ),
