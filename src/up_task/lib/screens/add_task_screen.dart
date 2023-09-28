@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
-
-//Custom imports
-import 'package:up_task/customwidgets/Recurrence/recurrence_tile.dart';
-import 'package:up_task/screens/add_task_screen.dart';
-import 'package:up_task/screens/custom_recurrence_screen.dart';
 import 'package:up_task/screens/recurrence_screen.dart';
 
 class AddTaskPage extends StatelessWidget {
-  const AddTaskPage({super.key});
+  const AddTaskPage({Key? key});
+
+  void _showTimePicker(BuildContext context) async {
+    final selectedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (selectedTime != null) {
+      // Handle the selected time here
+      print('Selected Time: ${selectedTime.format(context)}');
+    }
+  }
+
+  void _showDatePicker(BuildContext context) async {
+    final selectedDate = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime.now().add(Duration(days: 365)),
+    );
+
+    if (selectedDate != null) {
+      // Handle the selected date here
+      print('Selected Date: ${selectedDate.toLocal()}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,63 +51,52 @@ class AddTaskPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              // Styled TextField
-              // Enter Task Name
               TextField(
                 decoration: InputDecoration(
                   labelText: 'Task Name',
                   labelStyle: TextStyle(
-                    color: Colors.purple, // Customize label text color
+                    color: Colors.purple,
                     fontSize: 16.0,
                   ),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     borderSide: BorderSide(
-                      color: Colors.purple, // Customize border color
+                      color: Colors.purple,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     borderSide: BorderSide(
-                      color: Colors.purple, // Customize focused border color
+                      color: Colors.purple,
                     ),
                   ),
                   prefixIcon: Icon(
-                    Icons.assignment, // Add an icon as a prefix
-                    color: Colors.purple, // Customize icon color
+                    Icons.assignment,
+                    color: Colors.purple,
                   ),
                 ),
                 style: TextStyle(
-                  fontSize: 18.0, // Customize text inside the TextField
+                  fontSize: 18.0,
                 ),
               ),
-
               SizedBox(
                 height: 20,
               ),
-
-              // ADD TIME and ADD DATE BUTTONS
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      // Handle the "Time" button press
-                      // You can add your logic here
-                    },
                     child: Text('Add Time'),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(150, 60), // Increase button size
+                      minimumSize: Size(150, 60),
                     ),
+                    onPressed: () => _showTimePicker(context),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      // Handle the "Date" button press
-                      // You can add your logic here
-                    },
+                    onPressed: () => _showDatePicker(context),
                     child: Text('Add Date'),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(150, 60), // Increase button size
+                      minimumSize: Size(150, 60),
                     ),
                   ),
                 ],
@@ -94,19 +104,14 @@ class AddTaskPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-
-              //PRIORITY AND RECURRENCE BUTTON
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      // Handle the "Time" button press
-                      // You can add your logic here
-                    },
+                    onPressed: () {},
                     child: Text('Priority'),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(150, 60), // Increase button size
+                      minimumSize: Size(150, 60),
                     ),
                   ),
                   ElevatedButton(
@@ -116,7 +121,7 @@ class AddTaskPage extends StatelessWidget {
                             builder: (context) => RecurrenceScreen())),
                     child: Text('Repeat Task'),
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size(150, 60), // Increase button size
+                      minimumSize: Size(150, 60),
                     ),
                   ),
                 ],
@@ -124,7 +129,6 @@ class AddTaskPage extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-
               Text(
                 'Reminder',
                 textAlign: TextAlign.left,
@@ -133,12 +137,9 @@ class AddTaskPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
               SizedBox(
                 height: 10,
               ),
-
-              // TIME BUTTONS(10min,1Hour,1Day)
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -160,11 +161,9 @@ class AddTaskPage extends StatelessWidget {
                   ),
                 ],
               ),
-
               SizedBox(
                 height: 15,
               ),
-              // Description of Task
               Container(
                 height: 150,
                 child: TextField(
@@ -172,24 +171,24 @@ class AddTaskPage extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: 'Enter Task Description',
                     labelStyle: TextStyle(
-                      color: Colors.purple, // Customize label text color
+                      color: Colors.purple,
                       fontSize: 16.0,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       borderSide: BorderSide(
-                        color: Colors.purple, // Customize border color
+                        color: Colors.purple,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       borderSide: BorderSide(
-                        color: Colors.purple, // Customize focused border color
+                        color: Colors.purple,
                       ),
                     ),
                   ),
                   style: TextStyle(
-                    fontSize: 18.0, // Customize text inside the TextField
+                    fontSize: 18.0,
                   ),
                 ),
               ),
@@ -197,8 +196,6 @@ class AddTaskPage extends StatelessWidget {
           ),
         ),
       ),
-
-      //Tick Button
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pop(context),
         child: const Icon(Icons.check),
