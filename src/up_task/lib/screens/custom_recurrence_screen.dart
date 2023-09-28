@@ -189,7 +189,7 @@ class _CustomTaskState extends State<CustomTask> {
               Divider(),
 
               // Ends Section
-              Ends(),
+              //Ends(),
             ],
           ),
         ),
@@ -200,86 +200,85 @@ class _CustomTaskState extends State<CustomTask> {
 
 
 
-class Ends extends StatefulWidget {
-  const Ends({super.key});
+// class Ends extends StatefulWidget {
+//   const Ends({super.key});
 
-  @override
-  State<Ends> createState() => _EndsState();
-}
+//   @override
+//   State<Ends> createState() => _EndsState();
+// }
 
-class _EndsState extends State<Ends> {
-  late String selectedOption = 'Do not Repeat';
-  bool isExpanded = false;
+// class _EndsState extends State<Ends> {
+//   late String selectedOption = 'Do not Repeat';
+//   bool isExpanded = false;
 
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            SizedBox(
-              height: 50,
-            ),
-            const ListTile(
-              title: Text(
-                'Select type of recursion:',
-                style: TextStyle(fontSize: 18),
-              ),
-            ),
+//   @override
+//   Widget build(BuildContext context) {
+//     return Material(
+//       child: SingleChildScrollView(
+//         child: Column(
+//           children: <Widget>[
+//             SizedBox(
+//               height: 50,
+//             ),
+//             const ListTile(
+//               title: Text(
+//                 'Ends',
+//                 style: TextStyle(fontSize: 18),
+//               ),
+//             ),
 
-            //Never
-            RadioListTile(
-              title: const Text('Never'),
-              value: 'Never',
-              groupValue: selectedOption,
-              onChanged: (value) {
-                setState(() {
-                  selectedOption = value!;
-                  isExpanded = false; // Collapse the panel after selecting
-                });
-              },
-            ),
+//             //Never
+//             RadioListTile(
+//               title: const Text('Never'),
+//               value: 'Never',
+//               groupValue: selectedOption,
+//               onChanged: (value) {
+//                 setState(() {
+//                   selectedOption = value!;
+//                   isExpanded = false; // Collapse the panel after selecting
+//                 });
+//               },
+//             ),
 
-            //On
-            RadioListTile(
-              title: const Text('On'),
-              value: 'On',
-              groupValue: selectedOption,
-              onChanged: (value) {
-                setState(() {
-                  selectedOption = value!;
-                  isExpanded = true; // Collapse the panel after selecting
-                });
-              },
-            ),
+//             //On
+//             RadioListTile(
+//               title: const Text('On'),
+//               value: 'On',
+//               groupValue: selectedOption,
+//               onChanged: (value) {
+//                 setState(() {
+//                   selectedOption = value!;
+//                   isExpanded = true; // Collapse the panel after selecting
+//                 });
+//               },
+//             ),
 
             
-            //after
-            RadioListTile(
-              title: const Text('After'),
+//             //after
+//             RadioListTile(
+//               title: const Text('After'),
+//               value: 'After',
+//               groupValue: selectedOption,
+//               onChanged: (value) {
+//                 setState(() {
+//                   selectedOption = value!;
+//                   isExpanded = false; // Collapse the panel after selecting
+//                 });
+//               },
               
-              value: 'After',
-              groupValue: selectedOption,
-              onChanged: (value) {
-                setState(() {
-                  selectedOption = value!;
-                  isExpanded = false; // Collapse the panel after selecting
-                });
-              },
-              
-            ),
+//             ),
 
-            //Custom
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(minimumSize: Size(100, 40)),
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => CustomTask())),
-              child: Text("Custom Recurrence"),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//             //Custom
+//             ElevatedButton(
+//               style: ElevatedButton.styleFrom(minimumSize: Size(100, 40)),
+//               onPressed: () => Navigator.push(context,
+//                   MaterialPageRoute(builder: (context) => CustomTask())),
+//               child: Text("Custom Recurrence"),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
