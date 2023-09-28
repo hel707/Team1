@@ -4,7 +4,51 @@ import 'package:up_task/screens/recurrence_screen.dart';
 class AddTaskPage extends StatelessWidget {
   const AddTaskPage({Key? key});
 
-  void _showTimePicker(BuildContext context) async {
+  Future<void> _showPriorityDialog(BuildContext context) async {
+    int? selectedPriority;
+
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Select Priority'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  selectedPriority = 1;
+                  Navigator.of(context).pop();
+                },
+                child: Text('Priority 1'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  selectedPriority = 2;
+                  Navigator.of(context).pop();
+                },
+                child: Text('Priority 2'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  selectedPriority = 3;
+                  Navigator.of(context).pop();
+                },
+                child: Text('Priority 3'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+
+    if (selectedPriority != null) {
+      // Handle the selected priority here
+      print('Selected Priority: $selectedPriority');
+    }
+  }
+
+  Future<void> _showTimePicker(BuildContext context) async {
     final selectedTime = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
@@ -16,7 +60,7 @@ class AddTaskPage extends StatelessWidget {
     }
   }
 
-  void _showDatePicker(BuildContext context) async {
+  Future<void> _showDatePicker(BuildContext context) async {
     final selectedDate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -108,7 +152,7 @@ class AddTaskPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () => _showPriorityDialog(context),
                     child: Text('Priority'),
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(150, 60),
