@@ -78,8 +78,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "Su",
                         onPressed: null,
@@ -90,8 +90,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "M",
                         onPressed: null,
@@ -102,8 +102,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "Tu",
                         onPressed: null,
@@ -114,8 +114,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "W",
                         onPressed: null,
@@ -126,8 +126,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "T",
                         onPressed: null,
@@ -138,8 +138,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "F",
                         onPressed: null,
@@ -150,8 +150,8 @@ class CustomTask extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.5),
                     child: Container(
-                      height: 25,
-                      width: 25,
+                      height: 35,
+                      width: 35,
                       child: FloatingActionButton(
                         heroTag: "S",
                         onPressed: null,
