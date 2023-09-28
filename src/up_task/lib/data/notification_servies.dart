@@ -35,8 +35,8 @@ class NotificationServices {
       android: androidNotificationDetails,
     );
 
-    await _flutterLocalNotificationsPlugin.periodicallyShow(0, title, body,
-        RepeatInterval.values as RepeatInterval, notificationDetails);
+    await _flutterLocalNotificationsPlugin.periodicallyShow(
+        0, title, body, RepeatInterval.everyMinute, notificationDetails);
   }
 
   void stopNotifications() async {
