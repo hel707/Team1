@@ -69,17 +69,20 @@ class CustomTask extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
-              children: [
-                FloatingActionButton(heroTag: "Su", onPressed: null,child: Text("S")),
-                FloatingActionButton(heroTag: "M", onPressed: null,child: Text("M")),
-                FloatingActionButton(heroTag: "T", onPressed: null,child: Text("T")),
-                FloatingActionButton(heroTag: "W", onPressed: null,child: Text("W")),
-                FloatingActionButton(heroTag: "T", onPressed: null,child: Text("T")),
-                FloatingActionButton(heroTag: "F", onPressed: null,child: Text("F")),
-                FloatingActionButton(heroTag: "S", onPressed: null,child: Text("S")),
-                
-              ],
+            SizedBox(
+              width: 400,
+              child: Row(
+                children: [
+                  FloatingActionButton(heroTag: "Su", onPressed: null,child: Text("S")),
+                  FloatingActionButton(heroTag: "M", onPressed: null,child: Text("M")),
+                  FloatingActionButton(heroTag: "T", onPressed: null,child: Text("T")),
+                  FloatingActionButton(heroTag: "W", onPressed: null,child: Text("W")),
+                  FloatingActionButton(heroTag: "T", onPressed: null,child: Text("T")),
+                  FloatingActionButton(heroTag: "F", onPressed: null,child: Text("F")),
+                  FloatingActionButton(heroTag: "S", onPressed: null,child: Text("S")),
+                  
+                ],
+              ),
             )
           ],
         ),
