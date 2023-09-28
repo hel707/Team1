@@ -57,7 +57,7 @@ class InitializeApp extends StatelessWidget {
         // );
 
         //DELETE WHILE PRODUCTION
-        home: HomeLayout(title: 'Flutter Demo Home Page'));
+        home: HomeLayout(title: 'UpTask'));
   }
 }
 

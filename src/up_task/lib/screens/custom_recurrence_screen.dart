@@ -1,44 +1,59 @@
 import 'package:flutter/material.dart';
 
 class CustomTask extends StatelessWidget {
-  const CustomTask({super.key});
+  const CustomTask({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    
-      return Scaffold(
+    return MaterialApp(
+      home: Scaffold(
         appBar: AppBar(title: Text("Custom Recurrence")),
-        body: const Center(
-          child: Row(
-            children: [
-              Column(
+        body: Column(
+          children: [
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 30, top: 15, bottom: 10),
+                  child: Text('Repeats Every', style: TextStyle(fontSize: 15),),
+                ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 5, top: 5,bottom: 20),
+              child: Row(
                 children: [
-                  Text("Repete Everyday"),
-                  Row(
-                    children: [
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: "1",
-                          hintText: "change number",
-                        ),
+                  Container(
+                    width: 50, // Set your desired width here
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: '1',
                       ),
-                      
-                      ElevatedButton(onPressed: null, child: Text("button"))
-
-                    ],
-                  )
+                    ),
+                  ),
+            
+                  SizedBox(
+                      width: 16),
+                  DropdownButton<String>(
+                    value: 'Day', 
+                    onChanged: (newValue) {
+                    },
+                    items: <String>['Day', 'Week', 'Month', 'Year']
+                        .map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
+            
+            //week selection
+                  
                 ],
-              )
-            ],
-          ),
-          // child: TextField(
-          //   decoration: InputDecoration(
-          //     labelText: "1",
-          //     hintText: "change number",
-          //   ),
-          // ),
+              ),
+            )
+          ],
         ),
-      
+      ),
     );
   }
 }
