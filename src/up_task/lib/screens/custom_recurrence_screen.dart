@@ -8,8 +8,10 @@ class CustomTask extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text("Custom Recurrence")),
+//main column
         body: Column(
           children: [
+//Repeat every
             Row(
               children: [
                 Padding(
@@ -22,6 +24,8 @@ class CustomTask extends StatelessWidget {
                 ),
               ],
             ),
+
+//date selection text field and drop down
             Padding(
               padding: const EdgeInsets.only(left: 5, top: 5, bottom: 20),
               child: Row(
