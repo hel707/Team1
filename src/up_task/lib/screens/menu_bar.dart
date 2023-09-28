@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:up_task/screens/profile_screen.dart';
+import 'package:up_task/screens/setting.dart';
 
 class NavBar extends StatelessWidget {
   @override
@@ -35,7 +37,10 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Profile'),
-            onTap: () => null,
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()));
+            },
           ),
 
           ListTile(
@@ -62,16 +67,13 @@ class NavBar extends StatelessWidget {
           Divider(),
 
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-            onTap: () => null,
-          ),
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SettingsOnePage()));
+              }),
 
-          ListTile(
-            leading: Icon(Icons.share),
-            title: Text('Share'),
-            onTap: () => null,
-          ),
           Divider(),
 
           ListTile(
