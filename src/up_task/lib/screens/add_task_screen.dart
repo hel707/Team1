@@ -11,12 +11,61 @@ class AddTaskPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Recursions'),
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 80,
+              ),
+              Text(
+                'ADD TASK',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              // Styled TextField
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Task Name',
+                  labelStyle: TextStyle(
+                    color: Colors.blue, // Customize label text color
+                    fontSize: 16.0,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(
+                      color: Colors.blue, // Customize border color
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(
+                      color: Colors.blue, // Customize focused border color
+                    ),
+                  ),
+                  prefixIcon: Icon(
+                    Icons.assignment, // Add an icon as a prefix
+                    color: Colors.blue, // Customize icon color
+                  ),
+                ),
+                style: TextStyle(
+                  fontSize: 18.0, // Customize text inside the TextField
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              // Add other widgets or components as needed
+            ],
+          ),
         ),
-        body: const RecurrenceScreen(),
       ),
     );
   }
